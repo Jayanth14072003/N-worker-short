@@ -22,6 +22,28 @@ async def present_user(user_id : int):
     else:
         return False
 
+# collect the user shortner site details
+async def get_short(user_id) 
+    user_id = int(user_id)
+    user = await user_data.find_one({"user_id": user_id})
+    if not user:
+        res = {
+            "user_id": user_id,
+            "shortener_api": None,
+            "header_text": "",
+            "footer_text": "",
+            "username": None,
+            "base_site": None,
+            "is_username": True,
+            "is_header_text": True,
+            "is_footer_text": True,
+        }
+        await user_data.insert_one(res)
+        user = await user_data.find_one({"user_id": user_id})
+
+    return user
+    
+    
 async def add_user(user_id: int):
     user_data.insert_one({'_id': user_id})
     return
