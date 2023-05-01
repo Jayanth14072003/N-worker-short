@@ -3,7 +3,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from bot import Bot
-from config import ADMINS, SHORTLINK_API ,SHORTLINK_URL
+from config import ADMINS
 from helper_func import encode, get_message_id
 import requests
 import random
@@ -15,7 +15,9 @@ def generate_random_alphanumeric():
     random_chars = ''.join(random.choice(characters) for _ in range(8))
     return random_chars
 
-def get_short(url):
+def get_short(user, url):
+    SHORTLINK_URL = user["shortener_api"]
+    SHORTLINK_API = user["base_site"]
     rget = requests.get(f"https://{SHORTLINK_URL}/api?api={SHORTLINK_API}&url={url}&alias={generate_random_alphanumeric()}")
     rjson = rget.json()
     if rjson["status"] == "success" or rget.status_code == 200:
