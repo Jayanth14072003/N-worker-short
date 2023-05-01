@@ -3,7 +3,7 @@ import contextlib
 import datetime
 import logging
 
-from database import db
+from database import database
 from database.users import del_user, present_user, full_userbase, add_user ,get_short
 from pyrogram import Client, filters
 from translation import *
