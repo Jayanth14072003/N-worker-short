@@ -23,7 +23,7 @@ async def present_user(user_id : int):
         return False
 
 # collect the user shortner site details
-async def get_short(user_id) 
+async def get_short(user_id :int) 
     user_id = int(user_id)
     user = await user_data.find_one({"user_id": user_id})
     if not user:
