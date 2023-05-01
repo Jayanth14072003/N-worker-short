@@ -32,9 +32,7 @@ async def get_short(user_id)
             "shortener_api": None,
             "header_text": "",
             "footer_text": "",
-            "username": None,
             "base_site": None,
-            "is_username": True,
             "is_header_text": True,
             "is_footer_text": True,
         }
